@@ -12,7 +12,7 @@ import com.imie.rpg.model.Butin;
  * @author florian
  *
  */
-public interface IMob extends IPersonnage {
+public interface IMob {
 	
 	public List<Butin> lacherButin();
 

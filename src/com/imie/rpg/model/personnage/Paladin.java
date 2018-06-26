@@ -3,7 +3,10 @@
  */
 package com.imie.rpg.model.personnage;
 
+import com.imie.rpg.model.arme.Arme;
+import com.imie.rpg.model.arme.ArmeMixte;
 import com.imie.rpg.model.arme.ArmePhysique;
+import com.imie.rpg.model.arme.ArmeMagique;
 import com.imie.rpg.model.armure.ArmurePhysique;
 
 /**
@@ -18,9 +21,19 @@ public abstract class Paladin extends Personnage {
 	public Paladin () {
 		super.setPointsDeVie(POINTSDEVIE);
 		super.setPointsAction(POINTSACTION);
-		super.setArme(new ArmePhysique());
+		this.setArme(new ArmeMixte());
 		super.setArmure(new ArmurePhysique());
 		super.setButins(null);
 	}
+	
+	public void setArme(Arme arme) {
+		if ((arme instanceof ArmeMixte) || (arme instanceof ArmeMagique)){
+			super.setArme(arme);
+		} else {
+			System.out.println("Merci de choisir soit une arme mixte ou magique");
+		}
+	}
+	
+
 
 }
