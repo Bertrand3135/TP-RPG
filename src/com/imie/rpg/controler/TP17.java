@@ -3,14 +3,8 @@
  */
 package com.imie.rpg.controler;
 
-import com.imie.rpg.model.personnage.mob.BarbareMob;
 import com.imie.rpg.model.personnage.mob.MagicienMob;
-import com.imie.rpg.model.personnage.mob.IMob;
-import com.imie.rpg.model.personnage.Barbare;
-import com.imie.rpg.model.personnage.Personnage;
-import com.imie.rpg.model.personnage.hero.IHero;
 import com.imie.rpg.model.personnage.hero.PaladinHero;
-import com.imie.rpg.model.arme.ArmeMagique;
 
 /**
  * @author florian
@@ -22,13 +16,15 @@ public class TP17 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		IPersonnage perso = new BarbareMob();
+		Jeu jeuUn = new Jeu();
 		
-		if ( perso instanceof IHero )
-			System.out.println("OUIIIIIII");
-		else
-			System.out.println("MEEEEEEEEEEEERDE !");
+		MagicienMob vilain = new MagicienMob();
+		PaladinHero gentil = new PaladinHero();
+		
+		jeuUn.combat(gentil, vilain);
+		
+		System.out.println("Gentil\nPDV : " + gentil.getPointsDeVie());
+		System.out.println("Vilain\nPDV : " + vilain.getPointsDeVie());
 
 	}
 	

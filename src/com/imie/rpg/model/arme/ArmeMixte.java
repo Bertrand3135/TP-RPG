@@ -17,7 +17,10 @@ public class ArmeMixte extends Arme {
 		this.setArmePhysique(new ArmePhysique());
 		
 		this.getArmeMagique().setValeurAttaque(this.getArmeMagique().getValeurAttaque() / 2);
-		this.getArmePhysique().setValeurAttaque(this.getArmePhysique().getValeurAttaque() / 2);
+		this.getArmePhysique().setValeurAttaque(this.getArmePhysique().getValeurAttaque() / 2);		
+
+		super.setPointsAction(6);
+		super.setValeurAttaque(this.getArmeMagique().getValeurAttaque() + this.getArmePhysique().getValeurAttaque());
 	}
 	
 	public ArmeMixte(String nom) {
