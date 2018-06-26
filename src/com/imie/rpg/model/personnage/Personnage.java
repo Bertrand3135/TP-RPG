@@ -45,7 +45,12 @@ public abstract class Personnage implements IPersonnage {
 	 * @param pointsAction the pointsAction to set
 	 */
 	public void setPointsAction(int pointsAction) {
-		this.pointsAction = pointsAction;
+		if (pointsAction<0) {
+			this.pointsAction=0;
+		}
+		else {
+			this.pointsAction = pointsAction;
+		}
 	}
 	
 	/**
@@ -87,6 +92,9 @@ public abstract class Personnage implements IPersonnage {
 		this.butins = butins;
 	}
 	
+	public void equiper() {
+			this.setPointsAction(this.getPointsAction()-1);
+	}
 	/* (non-Javadoc)
 	 * @see com.imie.rpg.controler.IPersonnage#hasButin()
 	 */
@@ -98,14 +106,7 @@ public abstract class Personnage implements IPersonnage {
 	/* (non-Javadoc)
 	 * @see com.imie.rpg.controler.IPersonnage#equiper(com.imie.rpg.model.armure.Armure, com.imie.rpg.model.arme.Arme)
 	 */
-	@Override
-	public void equiper(Armure armure, Arme arme) {
-		// TODO Auto-generated method stub
-		
-	}
-	/* (non-Javadoc)
-	 * @see com.imie.rpg.controler.IPersonnage#equiper(java.util.List)
-	 */
+
 	@Override
 	public void equiper(List<Butin> butins) {
 		// TODO Auto-generated method stub

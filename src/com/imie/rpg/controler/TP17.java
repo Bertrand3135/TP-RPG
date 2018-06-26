@@ -4,10 +4,13 @@
 package com.imie.rpg.controler;
 
 import com.imie.rpg.model.personnage.mob.BarbareMob;
+import com.imie.rpg.model.personnage.mob.MagicienMob;
 import com.imie.rpg.model.personnage.mob.IMob;
 import com.imie.rpg.model.personnage.Barbare;
 import com.imie.rpg.model.personnage.Personnage;
 import com.imie.rpg.model.personnage.hero.IHero;
+import com.imie.rpg.model.personnage.hero.PaladinHero;
+import com.imie.rpg.model.arme.ArmeMagique;
 
 /**
  * @author florian
@@ -26,6 +29,8 @@ public class TP17 {
 			System.out.println("OUIIIIIII");
 		else
 			System.out.println("MEEEEEEEEEEEERDE !");
+
 	}
+	
 
 }

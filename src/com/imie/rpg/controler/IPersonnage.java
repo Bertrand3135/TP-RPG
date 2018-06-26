@@ -17,7 +17,7 @@ public interface IPersonnage {
 
 	public boolean hasButin();
 	
-	public void equiper(Armure armure, Arme arme);
+	public void equiper();
 	
 	public void equiper(List<Butin> butins);
 }

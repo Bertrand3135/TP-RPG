@@ -3,6 +3,9 @@
  */
 package com.imie.rpg.model.personnage;
 
+import com.imie.rpg.model.arme.Arme;
+import com.imie.rpg.model.arme.ArmeMagique;
+import com.imie.rpg.model.arme.ArmeMixte;
 import com.imie.rpg.model.arme.ArmePhysique;
 import com.imie.rpg.model.armure.ArmurePhysique;
 
@@ -18,8 +21,17 @@ public abstract class Magicien extends Personnage {
 	public Magicien () {
 		super.setPointsDeVie(POINTSDEVIE);
 		super.setPointsAction(POINTSACTION);
-		super.setArme(new ArmePhysique());
+		this.setArme(new ArmeMagique());
 		super.setArmure(new ArmurePhysique());
 		super.setButins(null);
+	}
+	
+	public void setArme(Arme arme) {
+		if (arme instanceof ArmeMagique){
+			super.setArme(arme);
+			System.out.println("super");
+		} else {
+			System.out.println("Merci de choisir une arme  magique");
+		}
 	}
 }

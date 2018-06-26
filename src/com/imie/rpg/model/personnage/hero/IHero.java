@@ -12,7 +12,7 @@ import com.imie.rpg.model.Butin;
  * @author florian
  *
  */
-public interface IHero extends IPersonnage {
+public interface IHero{
 	
 	public void ramasserButin(List<Butin> butins);
 

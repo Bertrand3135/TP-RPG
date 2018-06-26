@@ -5,6 +5,9 @@ package com.imie.rpg.model.personnage;
 
 import java.util.List;
 
+import com.imie.rpg.model.arme.Arme;
+import com.imie.rpg.model.arme.ArmeMagique;
+import com.imie.rpg.model.arme.ArmeMixte;
 import com.imie.rpg.model.arme.ArmePhysique;
 import com.imie.rpg.model.armure.ArmurePhysique;
 
@@ -22,17 +25,25 @@ public abstract class Barbare extends Personnage {
 	public Barbare () {
 		super.setPointsDeVie(POINTSDEVIE);
 		super.setPointsAction(POINTSACTION);
-		super.setArme(new ArmePhysique());
+		this.setArme(new ArmePhysique());
 		this.setArme2(new ArmePhysique());
 		super.setArmure(new ArmurePhysique());
 		super.setButins(null);
 	}
 	
+	public void setArme(Arme arme) {
+		if ((arme instanceof ArmePhysique)){
+			super.setArme(arme);
+		} else {
+			System.out.println("Merci de choisir une arme physique");
+		}
+	}
+	
 	public ArmePhysique getArme2() {
 		return arme2;
 	}
-	public void setArme2(ArmePhysique arme2) {
-		this.arme2 = arme2;
+	public void setArme2(ArmePhysique arme) {
+			this.arme2 = arme;
 	}
 	
 	
