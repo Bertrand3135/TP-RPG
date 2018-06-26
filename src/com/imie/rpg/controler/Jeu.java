@@ -38,13 +38,12 @@ public class Jeu {
 		else
 			return;
 		
-		while ( ((Personnage) attaquant).getPointsAction() > 0 ) {
-			if ( ((Personnage) attaquant).getPointsAction() >= ((Personnage) attaquant).getArme().getPointsAction() ) {
-				taper(attaquant, adversaire, ((Personnage) attaquant).getArme());
-			}
+		while ( ((Personnage) attaquant).getPointsAction() >= ((Personnage) attaquant).getArme().getPointsAction()
+				&& ((Personnage) adversaire).getPointsDeVie() > 0 )
+		{
+			taper(attaquant, adversaire, ((Personnage) attaquant).getArme());
 			
 			if ( attaquant instanceof Barbare
-					&& ((Personnage) attaquant).getPointsAction() > 0
 					&& ((Personnage) attaquant).getPointsAction() >= ((Barbare) attaquant).getArme2().getPointsAction())
 			{
 				taper(attaquant, adversaire, ((Barbare) attaquant).getArme2());

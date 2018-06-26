@@ -33,6 +33,7 @@ public abstract class Personnage implements IPersonnage {
 	 */
 	public void setPointsDeVie(int pointsDeVie) {
 		this.pointsDeVie = pointsDeVie;
+		System.out.println(this.pointsDeVie);
 	}
 	
 	/**
