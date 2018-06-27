@@ -16,9 +16,12 @@ import com.imie.rpg.model.armure.Armure;
  */
 public abstract class Personnage implements IPersonnage {
 	
+	private static final String NOMPARDEFAUT	= "Personne";
+	
 	private static final String MSGNESTPASEQUIPE	= "Le %s n’a pas pu s’équiper.";
 	private static final String MSGESTEQUIPE		= "Le %s a équipé son %s.";
 	
+	private String nom;
 	private int pointsDeVie;
 	private int pointsAction;
 	private Armure armure;
@@ -26,6 +29,40 @@ public abstract class Personnage implements IPersonnage {
 	private List<Butin> butins;
 	private String type;
 	
+	public Personnage(int pointDeVie, int pointsAction) {
+		this(NOMPARDEFAUT, pointDeVie, pointsAction, null, null);
+	}
+	
+	public Personnage(String nom, int pointDeVie, int pointsAction) {
+		this(nom, pointDeVie, pointsAction, null, null);
+	}
+	
+	public Personnage(String nom, int pointsDeVie, int pointsAction, Armure armure, Arme arme) {
+		this(nom, pointsDeVie, pointsAction, armure, arme, null, "");		
+	}
+	
+	public Personnage(String nom, int pointsDeVie, int pointsAction, Armure armure, Arme arme, List<Butin> butins, String type) {
+		super();
+		this.setNom(nom);
+		this.setPointsDeVie(pointsDeVie);
+		this.setPointsAction(pointsAction);
+		this.setArmure(armure);
+		this.setArme(arme);
+		this.butins = butins;
+		this.type = type;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		if ( nom.isEmpty() )
+			this.nom = NOMPARDEFAUT;
+		else
+			this.nom = nom;
+	}
+
 	/**
 	 * @return the pointsDeVie
 	 */
@@ -86,16 +123,17 @@ public abstract class Personnage implements IPersonnage {
 	/**
 	 * @return the butins
 	 */
-	public List<Butin> getButins() {
+	protected List<Butin> getButins() {
 		return butins;
 	}
 	/**
 	 * @param butins the butins to set
 	 */
-	public void setButins(List<Butin> butins) {
+	protected void setButins(List<Butin> butins) {
 		this.butins = butins;
 	}
 	
+	@Override
 	public void equiper() {
 		if ( this.hasPA() ) {
 			this.setPointsAction(this.getPointsAction()-1);
@@ -106,22 +144,17 @@ public abstract class Personnage implements IPersonnage {
 			return;
 		}
 	}
-	/* (non-Javadoc)
-	 * @see com.imie.rpg.controler.IPersonnage#hasButin()
-	 */
+
 	@Override
 	public boolean hasButin() {
-		// TODO Auto-generated method stub
-		return false;
+		return ! butins.isEmpty();
 	}
-	/* (non-Javadoc)
-	 * @see com.imie.rpg.controler.IPersonnage#equiper(com.imie.rpg.model.armure.Armure, com.imie.rpg.model.arme.Arme)
-	 */
 	
 	@Override
 	public boolean hasPDV() {
 		return this.getPointsDeVie() > 0;
 	}
+	
 	@Override
 	public boolean hasPA() {
 		return this.getPointsAction() > 0;
@@ -131,6 +164,7 @@ public abstract class Personnage implements IPersonnage {
 		return this.getPointsAction() >= pointAction;
 	}
 	
+	@Override
 	public String getType() {
 		return this.type;
 	}
@@ -139,6 +173,7 @@ public abstract class Personnage implements IPersonnage {
 		this.type=type;
 	}
 	
+	@Override
 	public String toString() {
 		StringBuilder txt = new StringBuilder();
 		txt.append("Le combattant est un ").append(this.getType()).append(".\n");
@@ -150,6 +185,5 @@ public abstract class Personnage implements IPersonnage {
 		txt.append(this.getPointsAction()).append(" points d'action.");
 		return txt.toString();
 	}
-	
 
 }

@@ -8,5 +8,6 @@ package com.imie.rpg.model;
  *
  */
 public class Butin {
+	@SuppressWarnings("unused")
 	private static final String hello = "Je suis là, j’existe !";
 }
