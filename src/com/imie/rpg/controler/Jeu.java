@@ -105,12 +105,11 @@ public class Jeu {
 	}
 	
 	public void combat(Personnage attaquant, Personnage adversaire) {		
-		try {
+		if ( attaquant.hasPA() ) {
 			attaquant.equiper();
 		}
-		catch (Exception e) {
-			System.out.println(String.format("Le %s n’a pas pu s’équiper.", attaquant.getType()));
-			e.printStackTrace();
+		else {
+			System.out.println( String.format("Le %s n’a pas pu s’équiper.", attaquant.getType()) );
 			return;
 		}
 		
