@@ -14,6 +14,10 @@ import com.imie.rpg.model.armure.Armure;
  *
  */
 public interface IPersonnage {
+	
+	public boolean hasPDV();
+	
+	public boolean hasPA();
 
 	public boolean hasButin();
 	
