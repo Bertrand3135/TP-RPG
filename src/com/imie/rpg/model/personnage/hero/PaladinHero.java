@@ -20,6 +20,7 @@ public class PaladinHero extends Paladin implements IHero {
 	 */
 	public PaladinHero() {
 		super();
+		super.setType("Paladin Héro");
 	}
 
 	/* (non-Javadoc)
@@ -31,10 +32,13 @@ public class PaladinHero extends Paladin implements IHero {
 
 	}
 
+
 	@Override
-	public void equiper() {
+	public void equiperButin() {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 
 }

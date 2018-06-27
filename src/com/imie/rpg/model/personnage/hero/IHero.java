@@ -15,5 +15,7 @@ import com.imie.rpg.model.Butin;
 public interface IHero{
 	
 	public void ramasserButin(List<Butin> butins);
+	
+	public void equiperButin();
 
 }

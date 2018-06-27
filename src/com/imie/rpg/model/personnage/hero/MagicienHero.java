@@ -20,6 +20,7 @@ public class MagicienHero extends Magicien implements IHero {
 	 */
 	public MagicienHero() {
 		super();
+		super.setType("Magicien Héro");
 	}
 
 	/* (non-Javadoc)
@@ -32,9 +33,10 @@ public class MagicienHero extends Magicien implements IHero {
 	}
 
 	@Override
-	public void equiper() {
+	public void equiperButin() {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

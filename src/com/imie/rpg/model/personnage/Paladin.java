@@ -33,7 +33,6 @@ public abstract class Paladin extends Personnage {
 			System.out.println("Merci de choisir soit une arme mixte ou magique");
 		}
 	}
-	
 
 
 }

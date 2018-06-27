@@ -21,6 +21,7 @@ public abstract class Personnage implements IPersonnage {
 	private Armure armure;
 	private Arme arme;
 	private List<Butin> butins;
+	private String type;
 	
 	/**
 	 * @return the pointsDeVie
@@ -33,7 +34,6 @@ public abstract class Personnage implements IPersonnage {
 	 */
 	public void setPointsDeVie(int pointsDeVie) {
 		this.pointsDeVie = pointsDeVie;
-		System.out.println(this.pointsDeVie);
 	}
 	
 	/**
@@ -107,10 +107,51 @@ public abstract class Personnage implements IPersonnage {
 	/* (non-Javadoc)
 	 * @see com.imie.rpg.controler.IPersonnage#equiper(com.imie.rpg.model.armure.Armure, com.imie.rpg.model.arme.Arme)
 	 */
-
+	
 	@Override
-	public void equiper(List<Butin> butins) {
-		// TODO Auto-generated method stub
-		
+	public boolean hasPDV() {
+		boolean result = false;
+		if (this.getPointsDeVie()>0) {
+			result=true;
+		}
+		return result;
 	}
+	@Override
+	public boolean hasPA() {
+		boolean result = false;
+		if (this.getPointsAction()>0) {
+			result=true;
+		}
+		return result;
+	}
+	
+	public boolean hasPA(int pointAction) {
+		boolean result = false;
+		if (this.getPointsAction()>= pointAction) {
+			result=true;
+		}
+		return result;
+	}
+	
+	public String getType() {
+		return this.type;
+	}
+	
+	protected void  setType(String type) {
+		this.type=type;
+	}
+	
+	public String toString() {
+		StringBuilder txt = new StringBuilder();
+		txt.append("Le combattant est un ").append(this.getType()).append(".\n");
+		txt.append("Il est équipé d’une arme de type ").append(this.getArme().getNom());
+		txt.append(" avec ").append(this.getArme().getValeurAttaque()); 
+		txt.append(" points d’attaque,\net d’une armure ").append(this.getArmure().getNom());
+		txt.append(" avec ").append(this.getArmure().getValeurDefense());
+		txt.append(" points de défense.\nIl lui reste ").append(this.getPointsDeVie()).append(" points de vie et ");
+		txt.append(this.getPointsAction()).append(" points d'action.");
+		return txt.toString();
+	}
+	
+
 }

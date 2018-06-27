@@ -15,5 +15,5 @@ import com.imie.rpg.model.Butin;
 public interface IMob {
 	
 	public List<Butin> lacherButin();
-
+	
 }
