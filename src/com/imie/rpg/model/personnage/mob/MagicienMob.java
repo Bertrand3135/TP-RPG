@@ -20,6 +20,7 @@ public class MagicienMob extends Magicien implements IMob {
 	 */
 	public MagicienMob() {
 		super();
+		super.setType("Magicien Mob");
 	}
 
 	/* (non-Javadoc)
@@ -31,10 +32,7 @@ public class MagicienMob extends Magicien implements IMob {
 		return null;
 	}
 
-	@Override
-	public void equiper() {
-		// TODO Auto-generated method stub
-		
-	}
+
+
 
 }

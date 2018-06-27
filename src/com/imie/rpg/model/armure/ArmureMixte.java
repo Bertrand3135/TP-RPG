@@ -19,6 +19,8 @@ public class ArmureMixte extends Armure {
 		this.getArmureMagique().setValeurDefense(this.getArmureMagique().getValeurDefense() / 2);
 		this.getArmurePhysique().setValeurDefense(this.getArmurePhysique().getValeurDefense() / 2);
 		
+		super.setValeurDefense(this.getArmureMagique().getValeurDefense() + this.getArmurePhysique().getValeurDefense());
+		
 	}
 	
 	public ArmureMixte(String nom) {

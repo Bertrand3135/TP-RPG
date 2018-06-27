@@ -20,6 +20,7 @@ public class BarbareMob extends Barbare implements IMob {
 	 */
 	public BarbareMob() {
 		super();
+		super.setType("Barbare Mob");
 	}
 
 	/* (non-Javadoc)
@@ -30,13 +31,6 @@ public class BarbareMob extends Barbare implements IMob {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public void equiper() {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 
 }

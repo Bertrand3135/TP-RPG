@@ -29,9 +29,10 @@ public abstract class Magicien extends Personnage {
 	public void setArme(Arme arme) {
 		if (arme instanceof ArmeMagique){
 			super.setArme(arme);
-			System.out.println("super");
 		} else {
 			System.out.println("Merci de choisir une arme  magique");
 		}
 	}
+	
+
 }

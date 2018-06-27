@@ -23,5 +23,5 @@ public interface IPersonnage {
 	
 	public void equiper();
 	
-	public void equiper(List<Butin> butins);
+
 }

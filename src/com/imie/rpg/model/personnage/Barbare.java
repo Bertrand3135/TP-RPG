@@ -45,7 +45,5 @@ public abstract class Barbare extends Personnage {
 	public void setArme2(ArmePhysique arme) {
 			this.arme2 = arme;
 	}
-	
-	
 
 }
