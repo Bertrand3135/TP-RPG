@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.imie.rpg.model.Butin;
 import com.imie.rpg.model.arme.Arme;
+import com.imie.rpg.model.armure.Armure;
 import com.imie.rpg.model.personnage.Magicien;
 
 /**
@@ -14,6 +15,8 @@ import com.imie.rpg.model.personnage.Magicien;
  *
  */
 public class MagicienMob extends Magicien implements IMob {
+	
+	private static final String TYPE = "magicien mob";
 
 	/**
 	 * 
@@ -22,14 +25,21 @@ public class MagicienMob extends Magicien implements IMob {
 		super();
 		super.setType("Magicien Mob");
 	}
+	
+	public MagicienMob(int pointsDeVie, int pointsAction, Arme arme, Armure armure, List<Butin> butins) {
+		super(pointsDeVie, pointsAction, arme, armure);
+		super.setType(TYPE);
+	}
+	
+	public MagicienMob(String nom, int pointsDeVie, int pointsAction, Arme arme, Armure armure, List<Butin> butins) {
+		super(nom, pointsDeVie, pointsAction, arme, armure);
+		super.setType(TYPE);
+	}
 
-	/* (non-Javadoc)
-	 * @see com.imie.rpg.model.personnage.mob.IMob#lacherButin()
-	 */
+
 	@Override
 	public List<Butin> lacherButin() {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getButins();
 	}
 
 

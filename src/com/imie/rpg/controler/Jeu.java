@@ -123,8 +123,8 @@ public class Jeu {
 		return result;
 	}
 	
+	//TODO
 	private void tour() {
-		//TODO
 	}
 	
 	private void attaque(Personnage attaquant, Personnage adversaire) {	

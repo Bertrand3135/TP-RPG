@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.imie.rpg.model.Butin;
 import com.imie.rpg.model.arme.Arme;
+import com.imie.rpg.model.armure.Armure;
 import com.imie.rpg.model.personnage.Paladin;
 
 /**
@@ -14,31 +15,37 @@ import com.imie.rpg.model.personnage.Paladin;
  *
  */
 public class PaladinHero extends Paladin implements IHero {
+	
+	private static final String TYPE = "paladin héro";
 
 	/**
 	 * 
 	 */
 	public PaladinHero() {
 		super();
-		super.setType("Paladin Héro");
+		super.setType(TYPE);
+	}
+	
+	public PaladinHero(int pointsDeVie, int pointsAction, Arme arme, Armure armure, List<Butin> butins) {
+		super("", pointsDeVie, pointsAction, arme, armure);
+		super.setType(TYPE);
+	}
+	
+	public PaladinHero(String nom, int pointsDeVie, int pointsAction, Arme arme, Armure armure, List<Butin> butins) {
+		super(nom, pointsDeVie, pointsAction, arme, armure);
+		super.setType(TYPE);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.imie.rpg.model.personnage.hero.IHero#ramasserButin(java.util.List)
-	 */
+
 	@Override
 	public void ramasserButin(List<Butin> butins) {
-		// TODO Auto-generated method stub
-
+		super.getButins().addAll(butins);
 	}
-
 
 	@Override
 	public void equiperButin() {
 		// TODO Auto-generated method stub
 		
 	}
-	
-
 
 }

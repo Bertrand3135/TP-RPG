@@ -27,21 +27,19 @@ public class MagicienHero extends Magicien implements IHero {
 	}
 	
 	public MagicienHero(int pointsDeVie, int pointsAction, Arme arme, Armure armure, List<Butin> butins) {
+		super(pointsDeVie, pointsAction, arme, armure);
 		super.setType(TYPE);
-		super.setPointsAction(pointsAction);
-		super.setPointsDeVie(pointsDeVie);
-		super.setArme(arme);
-		super.setArmure(armure);
-		super.setButins(butins);
+	}
+	
+	public MagicienHero(String nom, int pointsDeVie, int pointsAction, Arme arme, Armure armure, List<Butin> butins) {
+		super(nom, pointsDeVie, pointsAction, arme, armure);
+		super.setType(TYPE);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.imie.rpg.model.personnage.hero.IHero#ramasserButin(java.util.List)
-	 */
+
 	@Override
 	public void ramasserButin(List<Butin> butins) {
-		// TODO Auto-generated method stub
-
+		super.getButins().addAll(butins);
 	}
 
 	@Override
