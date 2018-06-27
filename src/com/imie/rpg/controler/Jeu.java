@@ -3,7 +3,10 @@ package com.imie.rpg.controler;
 import java.util.List;
 
 import com.imie.rpg.model.arme.Arme;
+import com.imie.rpg.model.arme.ArmeMagique;
+import com.imie.rpg.model.arme.ArmePhysique;
 import com.imie.rpg.model.armure.Armure;
+import com.imie.rpg.model.armure.ArmureMagique;
 import com.imie.rpg.model.personnage.Barbare;
 import com.imie.rpg.model.personnage.Personnage;
 import com.imie.rpg.model.personnage.hero.IHero;
@@ -32,14 +35,17 @@ public class Jeu {
 	}
 	
 	public void combat(IHero attaquant, IMob adversaire) {		
-		if ( ((Personnage) attaquant).getPointsAction() > 0 ) {
+		try {
 			((Personnage) attaquant).equiper();
 		}
-		else
+		catch (Exception e) {
+			System.out.println(String.format("Le %s n’a pas pu s’équiper.",((Personnage) attaquant).getType()));
+			e.printStackTrace();
 			return;
+		}
 		
 		while ( ((Personnage) attaquant).getPointsAction() >= ((Personnage) attaquant).getArme().getPointsAction()
-				&& ((Personnage) adversaire).getPointsDeVie() > 0 )
+				&& ((Personnage) adversaire).hasPDV() )
 		{
 			taper(attaquant, adversaire, ((Personnage) attaquant).getArme());
 			
@@ -87,7 +93,20 @@ public class Jeu {
 	}
 	
 	private void taper (IHero attaquant, IMob adversaire, Arme arme) {
-		int degats = arme.getValeurAttaque()
+		int degats;
+		
+		if ( ((Personnage) adversaire).getArmure() instanceof ArmureMagique ) {
+			if ( arme instanceof ArmePhysique )
+				degats = arme.getValeurAttaque();
+			else if ( arme instanceof ArmeMagique )
+				degats = arme.getValeurAttaque()
+				- ((Personnage) adversaire).getArmure().getValeurDefense();
+			else {
+				
+			}
+		}
+		
+		degats = arme.getValeurAttaque()
 						- ((Personnage) adversaire).getArmure().getValeurDefense();
 		if ( degats < 0 )
 			degats = 0;
