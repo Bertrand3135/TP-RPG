@@ -16,6 +16,9 @@ import com.imie.rpg.model.armure.Armure;
  */
 public abstract class Personnage implements IPersonnage {
 	
+	private static final String MSGNESTPASEQUIPE	= "Le %s n’a pas pu s’équiper.";
+	private static final String MSGESTEQUIPE		= "Le %s a équipé son %s.";
+	
 	private int pointsDeVie;
 	private int pointsAction;
 	private Armure armure;
@@ -94,7 +97,14 @@ public abstract class Personnage implements IPersonnage {
 	}
 	
 	public void equiper() {
+		if ( this.hasPA() ) {
 			this.setPointsAction(this.getPointsAction()-1);
+			System.out.println( String.format(MSGESTEQUIPE, this.getType(), this.getArme().getNom()) );
+		}
+		else {
+			System.out.println( String.format(MSGNESTPASEQUIPE, this.getType()) );
+			return;
+		}
 	}
 	/* (non-Javadoc)
 	 * @see com.imie.rpg.controler.IPersonnage#hasButin()
@@ -110,27 +120,15 @@ public abstract class Personnage implements IPersonnage {
 	
 	@Override
 	public boolean hasPDV() {
-		boolean result = false;
-		if (this.getPointsDeVie()>0) {
-			result=true;
-		}
-		return result;
+		return this.getPointsDeVie() > 0;
 	}
 	@Override
 	public boolean hasPA() {
-		boolean result = false;
-		if (this.getPointsAction()>0) {
-			result=true;
-		}
-		return result;
+		return this.getPointsAction() > 0;
 	}
 	
 	public boolean hasPA(int pointAction) {
-		boolean result = false;
-		if (this.getPointsAction()>= pointAction) {
-			result=true;
-		}
-		return result;
+		return this.getPointsAction() >= pointAction;
 	}
 	
 	public String getType() {
