@@ -3,6 +3,7 @@
  */
 package com.imie.rpg.model.personnage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.imie.rpg.controler.IPersonnage;
@@ -16,7 +17,7 @@ import com.imie.rpg.model.armure.Armure;
  */
 public abstract class Personnage implements IPersonnage {
 	
-	private static final String NOMPARDEFAUT	= "Personne";
+	private static final String NOMPARDEFAUT	= "NO ONE";
 	private static final int PDVPARDEFAUT		= 10;
 	private static final int PAPARDEFAUT		= 5;
 	
@@ -55,7 +56,10 @@ public abstract class Personnage implements IPersonnage {
 		this.setPointsAction(pointsAction);
 		this.setArmure(armure);
 		this.setArme(arme);
-		this.butins = butins;
+		if ( butins == null )
+			this.butins = new ArrayList<Butin>();
+		else
+			this.butins = butins;
 		this.type = type;
 	}
 	
@@ -80,7 +84,10 @@ public abstract class Personnage implements IPersonnage {
 	 * @param pointsDeVie the pointsDeVie to set
 	 */
 	public void setPointsDeVie(int pointsDeVie) {
-		this.pointsDeVie = pointsDeVie;
+		if ( pointsDeVie < 0 )
+			this.pointsDeVie = 0;
+		else
+			this.pointsDeVie = pointsDeVie;
 	}
 	
 	/**
@@ -108,7 +115,10 @@ public abstract class Personnage implements IPersonnage {
 		return this.pointsActionCombat;
 	}
 	public void setPointsActionCombat(int pointsAction) {
-		this.pointsActionCombat = pointsAction;
+		if ( pointsAction < 0)
+			this.pointsActionCombat = 0;
+		else
+			this.pointsActionCombat = pointsAction;
 	}
 	
 	/**
@@ -153,7 +163,7 @@ public abstract class Personnage implements IPersonnage {
 	@Override
 	public void equiper() {
 		if ( this.hasPA() ) {
-			this.setPointsAction(this.getPointsAction()-1);
+			this.setPointsActionCombat(this.getPointsActionCombat()-1);
 			System.out.println( String.format(MSGESTEQUIPE, this.getType(), this.getArme().getNom()) );
 		}
 		else {
@@ -174,11 +184,11 @@ public abstract class Personnage implements IPersonnage {
 	
 	@Override
 	public boolean hasPA() {
-		return this.getPointsAction() > 0;
+		return this.getPointsActionCombat() > 0;
 	}
 	
 	public boolean hasPA(int pointAction) {
-		return this.getPointsAction() >= pointAction;
+		return this.getPointsActionCombat() >= pointAction;
 	}
 	
 	@Override
