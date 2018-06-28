@@ -13,9 +13,10 @@ public class ArmureMixte extends Armure {
 	private ArmurePhysique armurePhysique;
 	
 	public ArmureMixte() {
-		this.setArmureMagique(new ArmureMagique());
-		this.setArmurePhysique(new ArmurePhysique());
+		super();
 		
+		this.setArmureMagique(new ArmureMagique());
+		this.setArmurePhysique(new ArmurePhysique());		
 		this.getArmureMagique().setValeurDefense(this.getArmureMagique().getValeurDefense() / 2);
 		this.getArmurePhysique().setValeurDefense(this.getArmurePhysique().getValeurDefense() / 2);
 		
@@ -24,8 +25,21 @@ public class ArmureMixte extends Armure {
 	}
 	
 	public ArmureMixte(String nom) {
-		this();
+		this();		
+		super.setNom(nom);
+	}
+	
+	public ArmureMixte(int valeurDefenseMagique, int valeurDefensePhysique) {
+		super();
 		
+		this.setArmureMagique(new ArmureMagique(valeurDefenseMagique));
+		this.setArmurePhysique(new ArmurePhysique(valeurDefensePhysique));
+		
+		super.setValeurDefense(this.getArmureMagique().getValeurDefense() + this.getArmurePhysique().getValeurDefense());
+	}
+	
+	public ArmureMixte(String nom, int valeurDefenseMagique, int valeurDefensePhysique) {
+		this(valeurDefenseMagique, valeurDefensePhysique);
 		super.setNom(nom);
 	}
 

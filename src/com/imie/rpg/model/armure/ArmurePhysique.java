@@ -12,13 +12,19 @@ public class ArmurePhysique extends Armure {
 	private static final int VALEURDEFENSE	= 7;
 	
 	public ArmurePhysique() {
-		super.setValeurDefense(VALEURDEFENSE);
+		super(VALEURDEFENSE);
 	}
 	
 	public ArmurePhysique(String nom) {
-		this();
-		
-		super.setNom(nom);
+		super(nom);
+	}
+	
+	public ArmurePhysique(int valeurDefense) {
+		super(valeurDefense);
+	}
+	
+	public ArmurePhysique(String nom, int valeurDefense) {
+		super(nom, valeurDefense);
 	}
 
 }

@@ -13,14 +13,23 @@ public class ArmePhysique extends Arme {
 	private static final int VALEURATTAQUE	= 7;
 	
 	public ArmePhysique() {
-		super.setPointsAction(POINTSACTION);
-		super.setValeurAttaque(VALEURATTAQUE);
+		super(POINTSACTION, VALEURATTAQUE);
 	}
 	
 	public ArmePhysique(String nom) {
-		this();
-		
-		super.setNom(nom);
+		super(nom, POINTSACTION, VALEURATTAQUE);
+	}
+	
+	public ArmePhysique(int attaque) {
+		super(POINTSACTION, attaque);
+	}
+	
+	public ArmePhysique(int pa, int attaque) {
+		super(pa, attaque);
+	}
+	
+	public ArmePhysique(String nom, int pa, int attaque) {
+		super(nom, pa, attaque);
 	}
 
 }
