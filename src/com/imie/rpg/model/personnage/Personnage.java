@@ -26,6 +26,7 @@ public abstract class Personnage implements IPersonnage {
 	private String nom;
 	private int pointsDeVie;
 	private int pointsAction;
+	private int pointsActionCombat;
 	private Armure armure;
 	private Arme arme;
 	private List<Butin> butins;
@@ -85,19 +86,29 @@ public abstract class Personnage implements IPersonnage {
 	/**
 	 * @return the pointsAction
 	 */
-	public int getPointsAction() {
+	protected int getPointsAction() {
 		return pointsAction;
 	}
 	/**
 	 * @param pointsAction the pointsAction to set
 	 */
-	public void setPointsAction(int pointsAction) {
+	protected void setPointsAction(int pointsAction) {
 		if (pointsAction<0) {
 			this.pointsAction=0;
 		}
 		else {
 			this.pointsAction = pointsAction;
 		}
+	}
+	
+	public void resetPACombat() {
+		this.setPointsActionCombat(this.getPointsAction());
+	}
+	public int getPointsActionCombat() {
+		return this.pointsActionCombat;
+	}
+	public void setPointsActionCombat(int pointsAction) {
+		this.pointsActionCombat = pointsAction;
 	}
 	
 	/**

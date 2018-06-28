@@ -137,13 +137,13 @@ public class Jeu {
 										attaquant.getType(),
 										attaquant.getArme().getNom(),
 										attaquant.getArme().getPointsAction(),
-										attaquant.getPointsAction()
+										attaquant.getPointsActionCombat()
 										)
 								);
 			System.out.println( String.format(MSGAETETAPE, adversaire.getType(), adversaire.getPointsDeVie()) );
 			
 			if ( attaquant instanceof Barbare
-					&& attaquant.getPointsAction() >= ((Barbare) attaquant).getArme2().getPointsAction()
+					&& attaquant.getPointsActionCombat() >= ((Barbare) attaquant).getArme2().getPointsAction()
 					&& adversaire.hasPDV() )
 			{
 				taper(attaquant, adversaire, ((Barbare) attaquant).getArme2());
@@ -162,7 +162,7 @@ public class Jeu {
 		adversaire.setPointsDeVie( adversaire.getPointsDeVie()
 				- calculerDegats(attaquant.getArme(), adversaire.getArmure()) );
 		
-		attaquant.setPointsAction( attaquant.getPointsAction() - arme.getPointsAction() );
+		attaquant.setPointsActionCombat( attaquant.getPointsActionCombat() - arme.getPointsAction() );
 	}
 	
 	private int calculerDegats(Arme armeAttaquant, Armure armureDefenseur) {
