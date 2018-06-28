@@ -17,6 +17,8 @@ import com.imie.rpg.model.armure.Armure;
 public abstract class Personnage implements IPersonnage {
 	
 	private static final String NOMPARDEFAUT	= "Personne";
+	private static final int PDVPARDEFAUT		= 10;
+	private static final int PAPARDEFAUT		= 5;
 	
 	private static final String MSGNESTPASEQUIPE	= "Le %s n’a pas pu s’équiper.";
 	private static final String MSGESTEQUIPE		= "Le %s a équipé son %s.";
@@ -28,6 +30,10 @@ public abstract class Personnage implements IPersonnage {
 	private Arme arme;
 	private List<Butin> butins;
 	private String type;
+	
+	public Personnage() {
+		this(NOMPARDEFAUT, PDVPARDEFAUT, PAPARDEFAUT);
+	}
 	
 	public Personnage(int pointDeVie, int pointsAction) {
 		this(NOMPARDEFAUT, pointDeVie, pointsAction, null, null);

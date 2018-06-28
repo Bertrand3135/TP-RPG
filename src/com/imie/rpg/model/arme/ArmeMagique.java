@@ -13,14 +13,23 @@ public class ArmeMagique extends Arme {
 	private static final int VALEURATTAQUE	= 10;
 	
 	public ArmeMagique() {
-		super.setPointsAction(POINTSACTION);
-		super.setValeurAttaque(VALEURATTAQUE);
+		super(POINTSACTION, VALEURATTAQUE);
 	}
 	
 	public ArmeMagique(String nom) {
-		this();
-		
-		super.setNom(nom);
+		super(nom, POINTSACTION, VALEURATTAQUE);
+	}
+	
+	public ArmeMagique(int attaque) {
+		super(POINTSACTION, attaque);
+	}
+	
+	public ArmeMagique(int pa, int attaque) {
+		super(pa, attaque);
+	}
+	
+	public ArmeMagique(String nom, int pa, int attaque) {
+		super(nom, pa, attaque);
 	}
 	
 }
