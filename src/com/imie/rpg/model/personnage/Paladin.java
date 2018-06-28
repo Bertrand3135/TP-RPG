@@ -24,7 +24,7 @@ public abstract class Paladin extends Personnage {
 	private static final String ERRORARMURE = "Merci de choisir soit une armure mixte ou magique";
 	
 	public Paladin () {
-		super("", POINTSDEVIE, POINTSACTION, new ArmurePhysique(), new ArmeMixte());
+		super("", POINTSDEVIE, POINTSACTION, new ArmureMagique(), new ArmeMixte());
 	}
 	
 	public Paladin(String nom, int pointsDeVie, int pointsAction, Arme arme, Armure armure) {
